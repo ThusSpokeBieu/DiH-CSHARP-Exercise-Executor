@@ -2,6 +2,15 @@
 
 ![imagem-do-menu](https://i.imgur.com/wT1EfMx.png)
 
+# Índice:
+
+- [Sobre o projeto](#sobre-o-projeto)
+- [Requisitos](#requisitos)
+- [Rodando o projeto](#rodando-o-projeto)
+- [Configurando os exercícios](#configurando-os-exercícios)
+
+# Sobre o projeto
+
 É um executador que compila todas as tarefas em C#. Feito para os exércicios do módulo 2 do curso DEVinHouse - Audaces.
 
 A ideia é que ele centralize os exercicíos para facilitar a execução dos mesmos.
