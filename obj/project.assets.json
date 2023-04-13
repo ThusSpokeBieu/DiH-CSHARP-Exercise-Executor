@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/gmess/projects/DEVinHouse/DiH_Audaces_M2_BackEnd/M2S02/exercises/solutions/solutions.csproj",
+      "projectUniqueName": "/home/gmess/projects/DEVinHouse/DiH-CSHARP-Exercise-Executor/solutions.csproj",
       "projectName": "solutions",
-      "projectPath": "/home/gmess/projects/DEVinHouse/DiH_Audaces_M2_BackEnd/M2S02/exercises/solutions/solutions.csproj",
+      "projectPath": "/home/gmess/projects/DEVinHouse/DiH-CSHARP-Exercise-Executor/solutions.csproj",
       "packagesPath": "/home/gmess/.nuget/packages/",
-      "outputPath": "/home/gmess/projects/DEVinHouse/DiH_Audaces_M2_BackEnd/M2S02/exercises/solutions/obj/",
+      "outputPath": "/home/gmess/projects/DEVinHouse/DiH-CSHARP-Exercise-Executor/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/gmess/.nuget/NuGet/NuGet.Config"

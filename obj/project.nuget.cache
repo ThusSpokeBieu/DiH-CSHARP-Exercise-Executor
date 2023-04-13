@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TAUNRTTzvuU1Kq7+F7o+2JmA29Wf+rAE4iBJGgaTc8Lbg308vd7MuC63fsz2of+New3C2uuV2BvFVXFrT2UOdw==",
+  "dgSpecHash": "EGBWTEYwIttKjTcA+QN88RFQuDxAzB7YEwrQoZI80phwLJPGt4TNJlSBKfdzU4xKzmP5r+WiALLD0wzFScZP4w==",
   "success": true,
-  "projectFilePath": "/home/gmess/projects/DEVinHouse/DiH_Audaces_M2_BackEnd/M2S02/exercises/solutions/solutions.csproj",
+  "projectFilePath": "/home/gmess/projects/DEVinHouse/DiH-CSHARP-Exercise-Executor/solutions.csproj",
   "expectedPackageFiles": [
     "/home/gmess/.nuget/packages/microsoft.netcore.app.ref/7.0.4/microsoft.netcore.app.ref.7.0.4.nupkg.sha512",
     "/home/gmess/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.4/microsoft.aspnetcore.app.ref.7.0.4.nupkg.sha512",
