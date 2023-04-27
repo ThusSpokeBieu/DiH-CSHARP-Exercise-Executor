@@ -10,13 +10,18 @@ namespace Exercise
             AnsiConsole.Clear();
 
             AnsiConsole.Write(
-                new FigletText("C# Exercises")
+                new FigletText("C# Exercise")
                     .Centered()
                     .Color(Color.Green));
 
             AnsiConsole.Write(
-                new FigletText("Semana 4")
+                new FigletText("Runner")
                     .Centered()
+                    .Color(Color.Red));
+
+            AnsiConsole.Write(
+                new FigletText("Week 4")
+                    .RightJustified()
                     .Color(Color.Yellow));
 
             var menuSelection = AnsiConsole.Prompt(
