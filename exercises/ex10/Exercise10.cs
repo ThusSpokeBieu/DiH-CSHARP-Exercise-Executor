@@ -1,11 +1,13 @@
-namespace ConsoleExercise
+using Spectre.Console;
+
+namespace Exercise
 {
-    
     class Exercise10 : ExerciseBase
     {
         public override void execute()
         {
-            Console.WriteLine("Executando exercicio 10...");
+            AnsiConsole.WriteLine("Rodando exercício 1");
         }
     }
+
 }

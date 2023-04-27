@@ -1,4 +1,4 @@
-namespace ConsoleExercise
+namespace Exercise
 {
     class ExerciseBase
     {

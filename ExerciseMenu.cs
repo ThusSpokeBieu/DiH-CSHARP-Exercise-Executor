@@ -1,90 +1,66 @@
-namespace ConsoleExercise
+using Spectre.Console;
+
+namespace Exercise
 {
     class ExerciseMenu
     {
-        private List<ExerciseBase> exercises = new List<ExerciseBase>();
+        public List<ExerciseBase> Exercises = new List<ExerciseBase>();
 
-        public ExerciseMenu()
-        {
-            exercises.Add(new Exercise1() { name = "[M2S02] Ex 1 ", description = "Soma de números" });
-            exercises.Add(new Exercise2() { name = "[M2S02] Ex 2 ", description = "Par ou ímpar" });
-            exercises.Add(new Exercise3() { name = "[M2S02] Ex 3 ", description = "Nome e Idade" });
-            exercises.Add(new Exercise4() { name = "[M2S02] Ex 4 ", description = "Informação de Veículos" });
-            exercises.Add(new Exercise5() { name = "[M2S02] Ex 5 ", description = "Ordenando Números" });
-            exercises.Add(new Exercise6() { name = "[M2S02] Ex 6 ", description = "Separando palavras" });
-            exercises.Add(new Exercise7() { name = "[M2S02] Ex 7 ", description = "Números pares" });
-            exercises.Add(new Exercise8() { name = "[M2S02] Ex 8 ", description = "O maior número da lista" });
-            exercises.Add(new Exercise9() { name = "[M2S02] Ex 9 ", description = "Média aritmética" });
-            exercises.Add(new Exercise10() { name = "[M2S02] Ex 10 ", description = "Calculadora" });
+        public ExerciseMenu() {
+            Exercises.Add(new Exercise01() { name = "M2S04 ~ Ex 01", description = "Modificadores de Acesso: Saudação Pessoa" });
+            Exercises.Add(new Exercise02() { name = "M2S04 ~ Ex 02", description = "Encapsulamento" });
+            Exercises.Add(new Exercise03() { name = "M2S04 ~ Ex 03", description = "Banco: modificadores de acesso, construtores e métodos" });
+            Exercises.Add(new Exercise04() { name = "M2S04 ~ Ex 04", description = "Encapsulamento ContaBancaria" });
+            Exercises.Add(new Exercise05() { name = "M2S04 ~ Ex 05", description = "Encapsulamento Classe Pessoa" });
+            Exercises.Add(new Exercise06() { name = "M2S04 ~ Ex 06", description = "Encapsulamento Classe Retângulo" });
+            Exercises.Add(new Exercise07() { name = "M2S04 ~ Ex 07", description = "Constante Valor Máximo Conta" });
+            Exercises.Add(new Exercise08() { name = "M2S04 ~ Ex 08", description = "Classe Abstrata e Herança" });
+            Exercises.Add(new Exercise09() { name = "M2S04 ~ Ex 09", description = "Calculadora: Classe Estática" });
+            Exercises.Add(new Exercise10() { name = "M2S04 ~ Ex 10", description = "Criação de Classe Conta Bancária com Transações" });
         }
 
+        public void RunExercise(int choice) {
+            Exercises[choice].execute();
+            AfterExerciseRun(choice);
+        }
 
-        public void ShowMenu()
-        {
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine(@"
-       ___  _ __ __        ___________ _____   ___  ___ 
-      / _ \(_) // / ____  / ___/ __/ // / _ | / _ \/ _ \
-     / // / / _  / /___/ / /___\ \/ _  / __ |/ , _/ ___/
-    /____/_/_//_/        \___/___/_//_/_/ |_/_/|_/_/"
-            );
-
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(@"
-         _______   __ ___________  _____ _____ _____ _____ _____ 
-        |  ___\ \ / /|  ___| ___ \/  __ \_   _/  ___|  ___/  ___|
-        | |__  \ V / | |__ | |_/ /| /  \/ | | \ `--.| |__ \ `--. 
-        |  __| /   \ |  __||    / | |     | |  `--. \  __| `--. \
-        | |___/ /^\ \| |___| |\ \ | \__/\_| |_/\__/ / |___/\__/ /
-        \____/\/   \/\____/\_| \_| \____/\___/\____/\____/\____/
-            "    
-            );
-
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("\t MENU DE EXERCICIOS: \n");
-            for (int i = 0; i < exercises.Count; i++)
-            {
-                Console.WriteLine($"\t {i + 1}. {exercises[i].name} - {exercises[i].description}");
-            }
-
-            Console.Write("\n \t Insira o número do exercício que quer executar: ");
-            int choice = int.Parse(Console.ReadLine());
-
-            if (choice > 0 && choice <= exercises.Count)
-            {
-                exercises[choice - 1].execute();
-                Console.WriteLine("\n \t Escolha uma opção:");
-                Console.WriteLine("\t 1 - Retornar ao menu de exercícios.");
-                Console.WriteLine("\t 2 - Repetir o exercício.");
-                Console.WriteLine("\t 3 - Sair.");
-
-                int option = int.Parse(Console.ReadLine());
-
-                switch (option)
-                {
-                    case 1:
-                        ShowMenu();
-                        break;
-                    case 2:
-                        exercises[choice - 1].execute();
-                        break;
-                    case 3:
-                        Console.WriteLine("\n \t Encerrando o programa... Até mais!");
-                        System.Environment.Exit(0);
-                        break;
-                    default:
-                        Console.WriteLine("\n \t Opção inválida! Encerrando o programa...");
-                        System.Environment.Exit(0);
-                        break;
-                }
-            }
-            else
-            {
-                Console.WriteLine("\t Por favor, insira um número correto.");
-                Console.ReadKey();
-                ShowMenu();
+        public void ReturnToMenu() {
+            if(AnsiConsole.Confirm("Retornar para o menu?")) {
+                Main.Run();
+            } else {
+                AnsiConsole.WriteLine("Até mais! :) ");
             }
         }
+
+        public void AfterExerciseRun(int choice) {
+            var selectionList = new List<String>();
+            selectionList.Add("Retornar ao Menu");
+            selectionList.Add("Repetir exercício");
+            selectionList.Add("Sair");
+            
+            Console.ReadKey();
+            var menuSelection = AnsiConsole.Prompt(
+                new SelectionPrompt<string>()
+                    .Title("\nSelecione uma opção: ")
+                    .MoreChoicesText("[grey]Use as setas para selecionar a opção[/]")
+                    .AddChoices(selectionList.ToArray()));
+            
+            var selected = Array.IndexOf(selectionList.ToArray(), menuSelection);
+
+            switch (selected) 
+            {
+                case 0:
+                    ReturnToMenu();
+                    break;
+                case 1: 
+                    RunExercise(choice);
+                    break;
+                default:
+                    AnsiConsole.WriteLine("Até mais! :) ");
+                    break;
+            }
+        }
+
+        
     }
 }
